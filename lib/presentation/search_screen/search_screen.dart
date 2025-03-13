@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../core/reusable_components/filter_bottom_sheet_widget.dart';
 import '../../core/reusable_components/text_field.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -54,30 +55,7 @@ class SearchScreen extends StatelessWidget {
                   onTap: () => showModalBottomSheet(
                     context: context,
                     isScrollControlled: true,
-                    builder: (context) => Container(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 20.h),
-                          Container(
-                            width: 50.w,
-                            height: 5.h,
-                            decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                          ),
-                          SizedBox(height: 20.h),
-                          Text("Filter Options", style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold)),
-                          // باقي محتوى الـ Bottom Sheet هنا
-                        ],
-                      ),
-                    ),
+                    builder: (context) => FilterBottomSheetWidget(),
                   ),
                   child: Container(
                     width: 60.w,
